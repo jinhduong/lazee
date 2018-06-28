@@ -1,4 +1,6 @@
 export interface LazeeConfig {
-    width: number;
-    suggestion: boolean;
+    debounceTime?: number;
+    onfocus?: Function;
+    outfocus?: Function;
+    press?: Function;
 }
