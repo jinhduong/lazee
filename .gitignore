@@ -4,5 +4,5 @@ node_modules
 .sass-cache
 *.css
 !dist/*
-!*.config.js
-!Gruntfile.js
+src/*.js
+src/*.css

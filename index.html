@@ -1,29 +1,22 @@
 <html>
-<link rel="stylesheet" href="./lazee.css">
+<link rel="stylesheet" href="./src/lazee.css">
 
 <body>
     <div></div>
 </body>
 
 </html>
-<script src="./lazee.js"></script>
+<script src="./src/lazee.js"></script>
 <script>
     var $autoComplete = new Lazee('div', {
         debounceTime: 200,
         getData: function (val) {
-            let arr = [
-                { word: '123sdfdfsdfsd', id: 123 },
-                { word: '123dfkjglkewifdjn', id: 123 },
-                { word: '123cvbcvbcvbcv', id: 123 },
-                { word: '123wqweqweqw', id: 123 },
-                { word: '123uyiyuiyuiyu', id: 123 },
-                { word: '123bnmbnmnbmbn', id: 123 },
-                { word: '879', id: 123 },
-                { word: 'asdsadsa', id: 123 },
-                { word: 'ghjgh', id: 123 }
-            ]
-            return arr.filter(x => x.word.includes(val));
+            return fetch('https://jsonplaceholder.typicode.com/albums')
+                .then(data => data.json())
+                .then(data => {
+                    return data.filter(x => x.title.includes(val));
+                });
         },
-        displayProp: 'word'
+        displayProp: 'title'
     });
 </script>

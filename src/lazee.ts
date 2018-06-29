@@ -1,28 +1,35 @@
-import { LazeeConfig } from "./models/lazee.config";
-import { debounce, isPromise } from "./utils/utils";
-import { consts } from "./utils/consts";
+import { LazeeConfig } from "../models/lazee.config";
+import { debounce, isPromise } from "../utils/utils";
+import { consts } from "../utils/consts";
+import { LazeeReturnObject } from "../models/lazee.return";
 declare var window;
 /**
  * 
  * @param selector selector query, default is get firsst element
  * @param config 
  */
-const Lazee = function (selector: string, config?: LazeeConfig) {
-
+const Lazee = function (selector: string, config?: LazeeConfig): LazeeReturnObject {
     // Update config
     const defaultConfig: LazeeConfig = {
         debounceTime: 50,
         wordLen: 1
     }
+
+    if (!config.getData) throw Error('You need to define getData function');
+
     config = Object.assign(defaultConfig, config || {});
 
     let elems = document.querySelectorAll(selector);
     if (!elems)
         throw new Error(`The select [${selector}] is empty `);
 
-    const $elem: Element = elems[0]; 
-    $elem.classList.add('lazee');
+    const $elem: Element = elems[0]; $elem.classList.add('lazee');
     const $input = renderInput($elem, config);
+
+    return {
+        value: () => $input.value,
+        item: () => $input[consts.SELFPROP]
+    }
 }
 
 /**
@@ -32,6 +39,8 @@ const Lazee = function (selector: string, config?: LazeeConfig) {
  */
 function renderInput(elem: Element, config: LazeeConfig) {
     const $input = document.createElement('input');
+    let idx = -1; // Store the order number of current select index
+    let curItem;
 
     // Bind events
     // onfocus
@@ -68,6 +77,7 @@ function renderInput(elem: Element, config: LazeeConfig) {
         }
 
         function _doRender(data) {
+            idx = -1;
             elem.classList.add('open');
             if (_curval.length >= config.wordLen)
                 renderSugesstion(elem, config, data, (selectedItem) => {
@@ -78,8 +88,7 @@ function renderInput(elem: Element, config: LazeeConfig) {
     }, config.debounceTime));
 
     // enter
-    let idx = -1;
-    let curItem;
+
     $input.addEventListener('keydown', (e) => {
         if (e.keyCode === consts.ENTER) {
             const _curval = $input.value;
@@ -90,7 +99,10 @@ function renderInput(elem: Element, config: LazeeConfig) {
             }
         } else if (e.keyCode === consts.DOWN || e.keyCode === consts.UP) {
             const isDownKey = e.keyCode === consts.DOWN;
-            idx = selectSuggesttionItems(elem, idx, isDownKey, (item) => curItem = item);
+            idx = selectSuggesttionItems(elem, idx, isDownKey, (item) => {
+                curItem = item;
+                $input[consts.SELFPROP] = item;
+            });
         }
     });
 
