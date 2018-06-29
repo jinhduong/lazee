@@ -1,7 +1,9 @@
 $padding: 10px;
 $shahow: 0 2px 2px 0 rgba(0, 0, 0, 0.16),
 0 0 0 1px rgba(0, 0, 0, 0.08);
+$border-radius: 2px;
 .lazee {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     width: 300px;
     position: relative;
     input {
@@ -15,6 +17,7 @@ $shahow: 0 2px 2px 0 rgba(0, 0, 0, 0.16),
         &:focus {
             outline: none;
         }
+        border-radius: $border-radius;
     }
     ul {
         list-style-type: none;
@@ -29,7 +32,11 @@ $shahow: 0 2px 2px 0 rgba(0, 0, 0, 0.16),
         }
         li {
             padding: 3px $padding;
+            cursor: pointer;
             &:hover {
+                background: #F6F6F6;
+            }
+            &.sl {
                 background: #F6F6F6;
             }
         }
@@ -37,6 +44,7 @@ $shahow: 0 2px 2px 0 rgba(0, 0, 0, 0.16),
     &.open {
         input {
             box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+            border-radius: $border-radius $border-radius 0px 0px;
         }
     }
 }
@@ -45,4 +53,6 @@ $shahow: 0 2px 2px 0 rgba(0, 0, 0, 0.16),
     position: absolute;
     width: 100%;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+    border-radius: 0px 0px $border-radius $border-radius;
+    background: white;
 }

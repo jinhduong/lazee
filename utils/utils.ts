@@ -49,3 +49,7 @@ export function debounce(func: Function, wait: number, immediate = false) {
 
     return debounced;
 };
+
+export function isPromise(obj): boolean {
+    return !!obj && (typeof obj === 'object' || typeof obj === 'function') && typeof obj.then === 'function';
+}

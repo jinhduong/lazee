@@ -1,12 +1,14 @@
 import typescript from 'rollup-plugin-typescript';
+import { uglify } from 'rollup-plugin-uglify';
 
 export default {
-    input: './lazeee.ts',
+    input: './lazee.ts',
     output: {
-        file: 'lazeee.js',
+        file: process.env.BUILD ? 'dist/lazee.min.js' : 'lazee.js',
         format: 'iife'
     },
     plugins: [
-        typescript()
+        typescript(),
+        // process.env.BUILD == 'prod' && uglify()
     ]
 };
