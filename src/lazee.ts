@@ -204,22 +204,3 @@ function renderSugesstionItems(config: LazeeConfig, data: any[], selected: (sele
 
 window.Lazee = Lazee;
 
-// const $autoComplete = new Lazee('div', {
-//     debounceTime: 200,
-//     getData: (val) => {
-//         let arr = [
-//             { word: '123sdfdfsdfsd', id: 123 },
-//             { word: '123dfkjglkewifdjn', id: 123 },
-//             { word: '123cvbcvbcvbcv', id: 123 },
-//             { word: '123wqweqweqw', id: 123 },
-//             { word: '123uyiyuiyuiyu', id: 123 },
-//             { word: '123bnmbnmnbmbn', id: 123 },
-//             { word: '879', id: 123 },
-//             { word: 'asdsadsa', id: 123 },
-//             { word: 'ghjgh', id: 123 }
-//         ]
-//         return arr.filter(x => x.word.includes(val));
-//     },
-//     displayProp: 'word'
-// });
-
