@@ -1,5 +1,9 @@
 # lazee
-💨 The simple, lightweight, Google search like and pure javascript auto-complete. 
+💨 The simple, lightweight, Google search like and pure javascript auto-complete.
+
+- Only `3kb` script, `1kb` css
+- Easy to implement and modify
+- Google like desgin
 
 [![Build Status](https://travis-ci.org/jinhduong/lazeee-complete.svg?branch=master)](https://travis-ci.org/jinhduong/lazeee-complete)
 
