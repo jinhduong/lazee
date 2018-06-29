@@ -9,7 +9,8 @@
     "scss": "sass --watch src/lazee.scss:src/lazee.css",
     "scss:build": "sass src/lazee.scss:dist/lazee.css",
     "rollup:build": "rollup -c --environment INCLUDE_DEPS,BUILD:prod",
-    "build": "npm run rollup:build && npm run scss:build"
+    "build": "npm run rollup:build && npm run scss:build",
+    "test": "grunt test --verbose"
   },
   "keywords": [],
   "author": "",

@@ -32,6 +32,8 @@ $(function () {
     var input = document.querySelectorAll('input')[0];
     test("ui test", function (assert) {
         equal(elem != null, true, "init elem");
+        equal(elem.className.indexOf('lazee') > -1, true, "has class name");
         equal(input != null, true, "init input");
+        equal($autoComplete != null, true, 'exist object')
     });
 });
