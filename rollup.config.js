@@ -9,6 +9,6 @@ export default {
     },
     plugins: [
         typescript(),
-        // process.env.BUILD == 'prod' && uglify()
+        process.env.BUILD == 'prod' && uglify()
     ]
 };
