@@ -11,20 +11,20 @@ export interface LazeeConfig {
      */
     enter?: (value: any, event: KeyboardEvent) => void;
     /**
-     * Give value and item, then receive a result (maybe is promise) 
+     * Give searchingValue then receive a result (maybe is promise) 
      */
-    getData?: (value: any) => Promise<any[]> | any[];
+    getData?: (searchingValue: any) => Promise<any[]> | any[];
     /**
      * Property that will display to autocomplete, default is string item
      * And display itself
      */
     displayProp?: string;
     /**
-     * When user click to any suggestion items
+     * When user click into suggestion items
      */
     itemClick?: (item: any) => void;
     /**
-     * Will call search method when lenght of world >= this value
+     * Search method will be called after the lenght of world >= this value
      */
     wordLen?: number;
 }

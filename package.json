@@ -7,7 +7,7 @@
     "dev": "browser-sync start --server --files \"src/*.js\" \"src/*.scss\" \"*.html\" ",
     "rollup": "rollup -w -c",
     "scss": "sass --watch src/lazee.scss:src/lazee.css",
-    "scss:build": "sass src/lazee.scss:dist/lazee.css",
+    "scss:build": "sass src/lazee.scss:dist/lazee.min.css --style compressed",
     "rollup:build": "rollup -c --environment INCLUDE_DEPS,BUILD:prod",
     "build": "npm run rollup:build && npm run scss:build",
     "test": "grunt test --verbose"
