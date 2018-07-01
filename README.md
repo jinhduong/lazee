@@ -5,7 +5,7 @@
 - Easy to implement and modify
 - Google like desgin
 
-[![Build Status](https://travis-ci.org/jinhduong/lazeee-complete.svg?branch=master)](https://travis-ci.org/jinhduong/lazeee-complete)
+[![Build Status](https://travis-ci.org/jinhduong/lazee.svg?branch=master)](https://travis-ci.org/jinhduong/lazee)
 
 ![lazee](https://i.imgur.com/ECyhlpu.gif)
 
